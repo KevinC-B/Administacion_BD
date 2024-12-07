@@ -25,7 +25,6 @@ public class FrmCliente extends javax.swing.JFrame {
     public FrmCliente() {
         initComponents();
         setLocationRelativeTo(null);
-        //listarCliente();
         cargarTablaClientes();
     }
 
@@ -76,32 +75,40 @@ public class FrmCliente extends javax.swing.JFrame {
         panCliente.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(51, 51, 51));
         lblTitulo.setLabelFor(lblTitulo);
         lblTitulo.setText("FORMULARIO CLIENTES");
         panCliente.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, -1, -1));
 
+        lblIdCliente.setBackground(new java.awt.Color(0, 0, 0));
         lblIdCliente.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblIdCliente.setForeground(new java.awt.Color(51, 51, 51));
         lblIdCliente.setText("ID:");
-        panCliente.add(lblIdCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, -1, -1));
+        panCliente.add(lblIdCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, -1, -1));
 
         lblNombre.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(51, 51, 51));
         lblNombre.setLabelFor(lblNombre);
         lblNombre.setText("NOMBRE:");
         panCliente.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, 30));
 
         lblDireccion.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblDireccion.setForeground(new java.awt.Color(51, 51, 51));
         lblDireccion.setText("DIRECCION:");
         panCliente.add(lblDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
 
         lblTelefono.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblTelefono.setForeground(new java.awt.Color(51, 51, 51));
         lblTelefono.setText("TELEFONO:");
         panCliente.add(lblTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 100, 30));
 
         lblCorreoElectronico.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblCorreoElectronico.setForeground(new java.awt.Color(51, 51, 51));
         lblCorreoElectronico.setText("CORREO ELECTRONICO:");
         panCliente.add(lblCorreoElectronico, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, -1, 30));
 
         lblFechaRegistro.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblFechaRegistro.setForeground(new java.awt.Color(51, 51, 51));
         lblFechaRegistro.setText("FECHA REGISTRO:");
         panCliente.add(lblFechaRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 380, -1, 30));
 

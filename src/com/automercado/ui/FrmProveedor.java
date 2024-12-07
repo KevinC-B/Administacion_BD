@@ -69,30 +69,37 @@ public class FrmProveedor extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(51, 51, 51));
         lblTitulo.setText("PROVEEDORES");
         jPanel1.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, -1, -1));
 
         lblIdProveedor.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblIdProveedor.setForeground(new java.awt.Color(51, 51, 51));
         lblIdProveedor.setText("ID:");
         jPanel1.add(lblIdProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, -1, -1));
 
         lblNombreProveedor.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblNombreProveedor.setForeground(new java.awt.Color(51, 51, 51));
         lblNombreProveedor.setText("NOMBRE:");
         jPanel1.add(lblNombreProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, 30));
 
         lblDireccionProveedor.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblDireccionProveedor.setForeground(new java.awt.Color(51, 51, 51));
         lblDireccionProveedor.setText("DIRECCION:");
         jPanel1.add(lblDireccionProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
 
         lblTelefonoProveedor.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblTelefonoProveedor.setForeground(new java.awt.Color(51, 51, 51));
         lblTelefonoProveedor.setText("TELEFONO:");
         jPanel1.add(lblTelefonoProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, 30));
 
         lblCorreoElectronicoProveedor.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblCorreoElectronicoProveedor.setForeground(new java.awt.Color(51, 51, 51));
         lblCorreoElectronicoProveedor.setText("CORREO ELECTRONICO:");
         jPanel1.add(lblCorreoElectronicoProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, 30));
 
         lblProductoProveedor.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblProductoProveedor.setForeground(new java.awt.Color(51, 51, 51));
         lblProductoProveedor.setText("PRODUCTO:");
         jPanel1.add(lblProductoProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, -1, 30));
 

@@ -37,7 +37,7 @@ public class FrmIndex extends javax.swing.JFrame {
         btnClientes = new javax.swing.JButton();
         btnInventarios = new javax.swing.JButton();
         btnSucursales = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lblImg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -121,8 +121,8 @@ public class FrmIndex extends javax.swing.JFrame {
         });
         panIndex.add(btnSucursales, new org.netbeans.lib.awtextra.AbsoluteConstraints(683, 347, 151, 55));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/automercado/img/index.jpg"))); // NOI18N
-        panIndex.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 500));
+        lblImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/automercado/img/index.jpg"))); // NOI18N
+        panIndex.add(lblImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 500));
 
         getContentPane().add(panIndex, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -130,11 +130,15 @@ public class FrmIndex extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDetalleVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetalleVentasActionPerformed
-        // TODO add your handling code here:
+        FrmDetalleVenta frmdven = new FrmDetalleVenta();
+        frmdven.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnDetalleVentasActionPerformed
 
     private void btnVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentasActionPerformed
-        // TODO add your handling code here:
+        FrmVenta frmven = new FrmVenta();
+        frmven.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnVentasActionPerformed
 
     private void btnEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmpleadosActionPerformed
@@ -156,11 +160,15 @@ public class FrmIndex extends javax.swing.JFrame {
     }//GEN-LAST:event_btnProductosActionPerformed
 
     private void btnSucursalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSucursalesActionPerformed
-        // TODO add your handling code here:
+        FrmSucursal frmsuc = new FrmSucursal();
+        frmsuc.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnSucursalesActionPerformed
 
     private void btnInventariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventariosActionPerformed
-        // TODO add your handling code here:
+        FrmInventario frminv = new FrmInventario();
+        frminv.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnInventariosActionPerformed
 
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
@@ -214,8 +222,8 @@ public class FrmIndex extends javax.swing.JFrame {
     private javax.swing.JButton btnProveedores;
     private javax.swing.JButton btnSucursales;
     private javax.swing.JButton btnVentas;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblAutomercado;
+    private javax.swing.JLabel lblImg;
     private javax.swing.JPanel panIndex;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,6 +4,10 @@
  */
 package com.automercado.ui;
 
+import com.automercado.bo.DetalleVentaBO;
+import com.automercado.entity.DetalleVenta;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author kev17
@@ -13,9 +17,16 @@ public class FrmDetalleVenta extends javax.swing.JFrame {
     /**
      * Creates new form FrmDetalleVenta
      */
+    private DetalleVentaBO ddetallebo = new DetalleVentaBO();
+
     public FrmDetalleVenta() {
         initComponents();
         setLocationRelativeTo(null);
+        cargarTablaDetalleVentas();
+    }
+
+    public void listarProveedor() {
+        ddetallebo.listaDetalleVenta(tblDetalleVentas);
     }
 
     /**
@@ -28,6 +39,24 @@ public class FrmDetalleVenta extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        btnEliminarDetalleVenta = new javax.swing.JButton();
+        lblIdDetalleVenta = new javax.swing.JLabel();
+        btnAgregarDetalleVenta = new javax.swing.JButton();
+        btnModificarDetalleVenta = new javax.swing.JButton();
+        txtCantidad = new javax.swing.JTextField();
+        txtPrecioUnitario = new javax.swing.JTextField();
+        lblIdProducto = new javax.swing.JLabel();
+        txtIdDetalleVenta = new javax.swing.JTextField();
+        lblPrecioUnitario = new javax.swing.JLabel();
+        lblCantidad = new javax.swing.JLabel();
+        btnLimpiar = new javax.swing.JButton();
+        txtIdProducto = new javax.swing.JTextField();
+        lblTitulo = new javax.swing.JLabel();
+        btnVolver = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblDetalleVentas = new javax.swing.JTable();
+        lblIdVenta = new javax.swing.JLabel();
+        txtIdVenta = new javax.swing.JTextField();
         lblImg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -36,6 +65,146 @@ public class FrmDetalleVenta extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnEliminarDetalleVenta.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnEliminarDetalleVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/automercado/icon/borrar_icon.png"))); // NOI18N
+        btnEliminarDetalleVenta.setText("Eliminar");
+        btnEliminarDetalleVenta.setToolTipText("");
+        btnEliminarDetalleVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarDetalleVentaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnEliminarDetalleVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 370, 120, 30));
+
+        lblIdDetalleVenta.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblIdDetalleVenta.setForeground(new java.awt.Color(51, 51, 51));
+        lblIdDetalleVenta.setText("ID DETALLE:");
+        jPanel1.add(lblIdDetalleVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, 30));
+
+        btnAgregarDetalleVenta.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnAgregarDetalleVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/automercado/icon/mas_icon.png"))); // NOI18N
+        btnAgregarDetalleVenta.setText("Agregar");
+        btnAgregarDetalleVenta.setToolTipText("");
+        btnAgregarDetalleVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarDetalleVentaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnAgregarDetalleVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 120, 30));
+
+        btnModificarDetalleVenta.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnModificarDetalleVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/automercado/icon/editar_icon.png"))); // NOI18N
+        btnModificarDetalleVenta.setText("Modificar");
+        btnModificarDetalleVenta.setToolTipText("");
+        btnModificarDetalleVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarDetalleVentaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnModificarDetalleVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, 120, 30));
+
+        txtCantidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCantidadActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 200, 30));
+
+        txtPrecioUnitario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPrecioUnitarioActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtPrecioUnitario, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 170, 30));
+
+        lblIdProducto.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblIdProducto.setForeground(new java.awt.Color(51, 51, 51));
+        lblIdProducto.setText("ID PRODUCTO:");
+        jPanel1.add(lblIdProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, 30));
+
+        txtIdDetalleVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdDetalleVentaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtIdDetalleVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 100, 30));
+
+        lblPrecioUnitario.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblPrecioUnitario.setForeground(new java.awt.Color(51, 51, 51));
+        lblPrecioUnitario.setText("PRECIO UNITARIO:");
+        jPanel1.add(lblPrecioUnitario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, 30));
+
+        lblCantidad.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblCantidad.setForeground(new java.awt.Color(51, 51, 51));
+        lblCantidad.setText("CANTIDAD:");
+        jPanel1.add(lblCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, 30));
+
+        btnLimpiar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/automercado/icon/limpiar_icon.png"))); // NOI18N
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.setToolTipText("");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 120, 30));
+
+        txtIdProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdProductoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtIdProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 100, 30));
+
+        lblTitulo.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(51, 51, 51));
+        lblTitulo.setText("DETALLE VENTAS");
+        jPanel1.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, -1, -1));
+
+        btnVolver.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/automercado/icon/atras_icon.png"))); // NOI18N
+        btnVolver.setText("Volver");
+        btnVolver.setToolTipText("");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 50, 110, 30));
+
+        tblDetalleVentas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        tblDetalleVentas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblDetalleVentasMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tblDetalleVentas);
+
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 87, 480, 390));
+
+        lblIdVenta.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblIdVenta.setForeground(new java.awt.Color(51, 51, 51));
+        lblIdVenta.setText("ID VENTA:");
+        jPanel1.add(lblIdVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, 30));
+
+        txtIdVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdVentaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtIdVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 100, 30));
+
         lblImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/automercado/img/detalleventas.jpg"))); // NOI18N
         jPanel1.add(lblImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 500));
 
@@ -43,6 +212,114 @@ public class FrmDetalleVenta extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnEliminarDetalleVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarDetalleVentaActionPerformed
+        if (txtIdDetalleVenta.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Por favor ingrese el ID del detalle a eliminar");
+        } else {
+            DetalleVentaBO ddetalleBO = new DetalleVentaBO();
+            String mensaje = ddetalleBO.eliminarDetalleVenta(Integer.parseInt(txtIdDetalleVenta.getText()));
+
+            JOptionPane.showMessageDialog(null, mensaje);
+            limpiar();
+            cargarTablaDetalleVentas();
+        }
+    }//GEN-LAST:event_btnEliminarDetalleVentaActionPerformed
+
+    private void btnAgregarDetalleVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarDetalleVentaActionPerformed
+        if (txtIdProducto.getText().isEmpty() || txtCantidad.getText().isEmpty()
+            || txtPrecioUnitario.getText().isEmpty() || txtIdVenta.getText().isEmpty()) {
+
+            JOptionPane.showMessageDialog(null, "Por favor complete todos los campos");
+        } else {
+            DetalleVenta detalle = new DetalleVenta();
+            detalle.setId_Venta(Long.parseLong(txtIdVenta.getText()));
+            detalle.setId_Producto(Integer.parseInt(txtIdProducto.getText()));
+            detalle.setCantidad(Integer.parseInt(txtCantidad.getText()));
+            detalle.setPrecio_Unitario(Integer.parseInt(txtPrecioUnitario.getText()));
+
+            DetalleVentaBO detalleBO = new DetalleVentaBO();
+            String mensaje = detalleBO.agregarDetalleVenta(detalle);
+
+            JOptionPane.showMessageDialog(null, mensaje);
+            limpiar();
+            cargarTablaDetalleVentas();
+        }
+    }//GEN-LAST:event_btnAgregarDetalleVentaActionPerformed
+
+    private void btnModificarDetalleVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarDetalleVentaActionPerformed
+        if (txtIdProducto.getText().isEmpty() || txtCantidad.getText().isEmpty()
+            || txtPrecioUnitario.getText().isEmpty() || txtIdVenta.getText().isEmpty()) {
+
+            JOptionPane.showMessageDialog(null, "Por favor complete todos los campos");
+        } else {
+            DetalleVenta detalle = new DetalleVenta();
+            detalle.setId_Detalle(Integer.parseInt(txtIdDetalleVenta.getText()));
+            detalle.setId_Venta(Long.parseLong(txtIdVenta.getText()));
+            detalle.setId_Producto(Integer.parseInt(txtIdProducto.getText()));
+            detalle.setCantidad(Integer.parseInt(txtCantidad.getText()));
+            detalle.setPrecio_Unitario(Integer.parseInt(txtPrecioUnitario.getText()));
+
+            DetalleVentaBO detalleBO = new DetalleVentaBO();
+            String mensaje = detalleBO.modificarDetalleVenta(detalle);
+
+            JOptionPane.showMessageDialog(null, mensaje);
+            limpiar();
+            cargarTablaDetalleVentas();
+        }
+    }//GEN-LAST:event_btnModificarDetalleVentaActionPerformed
+
+    private void txtCantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCantidadActionPerformed
+
+    private void txtPrecioUnitarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioUnitarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPrecioUnitarioActionPerformed
+
+    private void txtIdDetalleVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdDetalleVentaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdDetalleVentaActionPerformed
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        limpiar();
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void txtIdProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdProductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdProductoActionPerformed
+
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        FrmIndex frmind = new FrmIndex();
+        frmind.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnVolverActionPerformed
+
+    private void tblDetalleVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDetalleVentasMouseClicked
+        int seleccion = tblDetalleVentas.rowAtPoint(evt.getPoint());
+        txtIdDetalleVenta.setText(tblDetalleVentas.getValueAt(seleccion, 0) + "");
+        txtIdVenta.setText(tblDetalleVentas.getValueAt(seleccion, 1) + "");
+        txtIdProducto.setText(tblDetalleVentas.getValueAt(seleccion, 2) + "");
+        txtCantidad.setText(tblDetalleVentas.getValueAt(seleccion, 3) + "");
+        txtPrecioUnitario.setText(tblDetalleVentas.getValueAt(seleccion, 4) + "");
+    }//GEN-LAST:event_tblDetalleVentasMouseClicked
+
+    private void txtIdVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdVentaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdVentaActionPerformed
+
+    public void limpiar() {
+        txtIdDetalleVenta.setText("");
+        txtIdVenta.setText("");
+        txtIdProducto.setText("");
+        txtCantidad.setText("");
+        txtPrecioUnitario.setText("");
+    }
+
+    private void cargarTablaDetalleVentas() {
+        DetalleVentaBO ddetalleBO = new DetalleVentaBO();
+        ddetalleBO.listaDetalleVenta(tblDetalleVentas);
+    }
 
     /**
      * @param args the command line arguments
@@ -80,7 +357,25 @@ public class FrmDetalleVenta extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgregarDetalleVenta;
+    private javax.swing.JButton btnEliminarDetalleVenta;
+    private javax.swing.JButton btnLimpiar;
+    private javax.swing.JButton btnModificarDetalleVenta;
+    private javax.swing.JButton btnVolver;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblCantidad;
+    private javax.swing.JLabel lblIdDetalleVenta;
+    private javax.swing.JLabel lblIdProducto;
+    private javax.swing.JLabel lblIdVenta;
     private javax.swing.JLabel lblImg;
+    private javax.swing.JLabel lblPrecioUnitario;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JTable tblDetalleVentas;
+    private javax.swing.JTextField txtCantidad;
+    private javax.swing.JTextField txtIdDetalleVenta;
+    private javax.swing.JTextField txtIdProducto;
+    private javax.swing.JTextField txtIdVenta;
+    private javax.swing.JTextField txtPrecioUnitario;
     // End of variables declaration//GEN-END:variables
 }

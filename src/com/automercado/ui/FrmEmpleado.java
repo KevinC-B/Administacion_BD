@@ -71,30 +71,37 @@ public class FrmEmpleado extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(51, 51, 51));
         lblTitulo.setText("EMPLEADOS");
         jPanel1.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, -1, -1));
 
         lblIdEmpleado.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblIdEmpleado.setForeground(new java.awt.Color(51, 51, 51));
         lblIdEmpleado.setText("ID:");
         jPanel1.add(lblIdEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, -1, -1));
 
         lblNombreEmpleado.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblNombreEmpleado.setForeground(new java.awt.Color(51, 51, 51));
         lblNombreEmpleado.setText("NOMBRE:");
         jPanel1.add(lblNombreEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, 30));
 
         lblCargoEmpleado.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblCargoEmpleado.setForeground(new java.awt.Color(51, 51, 51));
         lblCargoEmpleado.setText("CARGO:");
         jPanel1.add(lblCargoEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 70, 30));
 
         lblFechaContratacionEmpleado.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblFechaContratacionEmpleado.setForeground(new java.awt.Color(51, 51, 51));
         lblFechaContratacionEmpleado.setText("FECHA CONTRATACION:");
         jPanel1.add(lblFechaContratacionEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, 30));
 
         lblSalarioEmpleado.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblSalarioEmpleado.setForeground(new java.awt.Color(51, 51, 51));
         lblSalarioEmpleado.setText("SALARIO:");
         jPanel1.add(lblSalarioEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, -1, 30));
 
         lblGerenteEmpleado.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblGerenteEmpleado.setForeground(new java.awt.Color(51, 51, 51));
         lblGerenteEmpleado.setText("GERENTE:");
         jPanel1.add(lblGerenteEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 90, 30));
 

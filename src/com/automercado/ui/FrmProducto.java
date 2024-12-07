@@ -68,26 +68,32 @@ public class FrmProducto extends javax.swing.JFrame {
         panProducto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblIdProducto.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblIdProducto.setForeground(new java.awt.Color(51, 51, 51));
         lblIdProducto.setText("ID:");
         panProducto.add(lblIdProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, -1, -1));
 
         lblNombreProducto.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblNombreProducto.setForeground(new java.awt.Color(51, 51, 51));
         lblNombreProducto.setText("NOMBRE:");
         panProducto.add(lblNombreProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, 30));
 
         lblPrecioProducto.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblPrecioProducto.setForeground(new java.awt.Color(51, 51, 51));
         lblPrecioProducto.setText("PRECIO:");
         panProducto.add(lblPrecioProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, 70, -1));
 
         lblDescripcionProducto.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblDescripcionProducto.setForeground(new java.awt.Color(51, 51, 51));
         lblDescripcionProducto.setText("DESCRIPCION:");
         panProducto.add(lblDescripcionProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, 30));
 
         lblStockProducto.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblStockProducto.setForeground(new java.awt.Color(51, 51, 51));
         lblStockProducto.setText("STOCK:");
         panProducto.add(lblStockProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, -1, 30));
 
         lblCategoriaProducto.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblCategoriaProducto.setForeground(new java.awt.Color(51, 51, 51));
         lblCategoriaProducto.setText("CATEGORIA:");
         panProducto.add(lblCategoriaProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 110, 30));
 
@@ -136,6 +142,7 @@ public class FrmProducto extends javax.swing.JFrame {
         panProducto.add(btnEliminarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 450, 120, 30));
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(51, 51, 51));
         lblTitulo.setText("PRODUCTOS");
         panProducto.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, -1, -1));
 

@@ -37,10 +37,10 @@ public class Test {
         System.out.println(mensaje);
     }
     
-    public static void main(String[] args) {
-        Test test = new Test();
-        //test.insertar();
-        //test.modificar();
-        //test.eliminar();
-    }
+//    public static void main(String[] args) {
+//        Test test = new Test();
+//        //test.insertar();
+//        //test.modificar();
+//        //test.eliminar();
+//    }
 }

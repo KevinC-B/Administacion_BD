@@ -4,6 +4,13 @@
  */
 package com.automercado.ui;
 
+import com.automercado.bo.InventarioBO;
+import com.automercado.entity.Inventario;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author kev17
@@ -13,9 +20,16 @@ public class FrmInventario extends javax.swing.JFrame {
     /**
      * Creates new form FrmInventario
      */
+    private InventarioBO invbo = new InventarioBO();
+    
     public FrmInventario() {
         initComponents();
         setLocationRelativeTo(null);
+        cargarTablaInventario();
+    }
+    
+    public void listarInventario() {
+        invbo.listaInventario(tblInventario);
     }
 
     /**
@@ -28,7 +42,25 @@ public class FrmInventario extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        btnEliminarInventario = new javax.swing.JButton();
+        lblIdInventario = new javax.swing.JLabel();
+        btnAgregarInventario = new javax.swing.JButton();
+        btnModificarInventario = new javax.swing.JButton();
+        txtStockInicial = new javax.swing.JTextField();
+        txtStockActualizado = new javax.swing.JTextField();
+        lblIdProductoInv = new javax.swing.JLabel();
+        txtIdInventario = new javax.swing.JTextField();
+        lblStockActualizado = new javax.swing.JLabel();
+        lblStockInicial = new javax.swing.JLabel();
+        btnLimpiar = new javax.swing.JButton();
+        txtIdProductoInv = new javax.swing.JTextField();
+        lblTitulo = new javax.swing.JLabel();
+        btnVolver = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblInventario = new javax.swing.JTable();
+        dtFechaInventario = new com.toedter.calendar.JDateChooser();
+        lblFechaInventario = new javax.swing.JLabel();
+        lblImg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -36,14 +68,261 @@ public class FrmInventario extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/automercado/img/inventario.jpg"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 500));
+        btnEliminarInventario.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnEliminarInventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/automercado/icon/borrar_icon.png"))); // NOI18N
+        btnEliminarInventario.setText("Eliminar");
+        btnEliminarInventario.setToolTipText("");
+        btnEliminarInventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarInventarioActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnEliminarInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 390, 120, 30));
+
+        lblIdInventario.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblIdInventario.setForeground(new java.awt.Color(51, 51, 51));
+        lblIdInventario.setText("ID INV:");
+        jPanel1.add(lblIdInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, 30));
+
+        btnAgregarInventario.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnAgregarInventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/automercado/icon/mas_icon.png"))); // NOI18N
+        btnAgregarInventario.setText("Agregar");
+        btnAgregarInventario.setToolTipText("");
+        btnAgregarInventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarInventarioActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnAgregarInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 120, 30));
+
+        btnModificarInventario.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnModificarInventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/automercado/icon/editar_icon.png"))); // NOI18N
+        btnModificarInventario.setText("Modificar");
+        btnModificarInventario.setToolTipText("");
+        btnModificarInventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarInventarioActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnModificarInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, 120, 30));
+
+        txtStockInicial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtStockInicialActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtStockInicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 200, 30));
+
+        txtStockActualizado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtStockActualizadoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtStockActualizado, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, 160, 30));
+
+        lblIdProductoInv.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblIdProductoInv.setForeground(new java.awt.Color(51, 51, 51));
+        lblIdProductoInv.setText("ID PRODUCTO:");
+        jPanel1.add(lblIdProductoInv, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, 30));
+
+        txtIdInventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdInventarioActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtIdInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 100, 30));
+
+        lblStockActualizado.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblStockActualizado.setForeground(new java.awt.Color(51, 51, 51));
+        lblStockActualizado.setText("STOCK ACTUALIZADO:");
+        jPanel1.add(lblStockActualizado, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, 30));
+
+        lblStockInicial.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblStockInicial.setForeground(new java.awt.Color(51, 51, 51));
+        lblStockInicial.setText("STOCK INICIAL:");
+        jPanel1.add(lblStockInicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, 30));
+
+        btnLimpiar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/automercado/icon/limpiar_icon.png"))); // NOI18N
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.setToolTipText("");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 120, 30));
+
+        txtIdProductoInv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdProductoInvActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtIdProductoInv, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 100, 30));
+
+        lblTitulo.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(51, 51, 51));
+        lblTitulo.setText("INVENTARIO");
+        jPanel1.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, -1, -1));
+
+        btnVolver.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/automercado/icon/atras_icon.png"))); // NOI18N
+        btnVolver.setText("Volver");
+        btnVolver.setToolTipText("");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 50, 110, 30));
+
+        tblInventario.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        tblInventario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblInventarioMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tblInventario);
+
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 87, 480, 390));
+        jPanel1.add(dtFechaInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 200, 30));
+
+        lblFechaInventario.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblFechaInventario.setForeground(new java.awt.Color(51, 51, 51));
+        lblFechaInventario.setText("FECHA VENTA:");
+        jPanel1.add(lblFechaInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, 30));
+
+        lblImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/automercado/img/inventario.jpg"))); // NOI18N
+        jPanel1.add(lblImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 500));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnEliminarInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarInventarioActionPerformed
+        if (txtIdInventario.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Por favor ingrese el ID del inventario a eliminar");
+        } else {
+            InventarioBO invBO = new InventarioBO();
+            String mensaje = invBO.eliminarInventario(Integer.parseInt(txtIdInventario.getText()));
+
+            JOptionPane.showMessageDialog(null, mensaje);
+            limpiar();
+            cargarTablaInventario();
+        }
+    }//GEN-LAST:event_btnEliminarInventarioActionPerformed
+
+    private void btnAgregarInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarInventarioActionPerformed
+        if (txtIdProductoInv.getText().isEmpty() || txtStockInicial.getText().isEmpty()
+            || txtStockActualizado.getText().isEmpty() || dtFechaInventario.getDate() == null) {
+
+            JOptionPane.showMessageDialog(null, "Por favor complete todos los campos");
+        } else {
+            Inventario inv = new Inventario();
+            inv.setId_Producto(Integer.parseInt(txtIdProductoInv.getText()));
+            inv.setStock_Inicial(Integer.parseInt(txtStockInicial.getText()));
+            inv.setStock_Actualizado(Integer.parseInt(txtStockActualizado.getText()));
+            Date fechaRegistro = dtFechaInventario.getDate();
+            inv.setFecha_Actualizacion(fechaRegistro);
+
+            InventarioBO invBO = new InventarioBO();
+            String mensaje = invBO.agregarInventario(inv);
+
+            JOptionPane.showMessageDialog(null, mensaje);
+            limpiar();
+            cargarTablaInventario();
+        }
+    }//GEN-LAST:event_btnAgregarInventarioActionPerformed
+
+    private void btnModificarInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarInventarioActionPerformed
+        if (txtIdProductoInv.getText().isEmpty() || txtStockInicial.getText().isEmpty()
+            || txtStockActualizado.getText().isEmpty() || dtFechaInventario.getDate() == null) {
+
+            JOptionPane.showMessageDialog(null, "Por favor complete todos los campos");
+        } else {
+            Inventario inv = new Inventario();
+            inv.setId_Inventario(Integer.parseInt(txtIdInventario.getText()));
+            inv.setId_Producto(Integer.parseInt(txtIdProductoInv.getText()));
+            inv.setStock_Inicial(Integer.parseInt(txtStockInicial.getText()));
+            inv.setStock_Actualizado(Integer.parseInt(txtStockActualizado.getText()));
+            Date fechaRegistro = dtFechaInventario.getDate();
+            inv.setFecha_Actualizacion(fechaRegistro);
+
+            InventarioBO invBO = new InventarioBO();
+            String mensaje = invBO.modificarInventario(inv); 
+
+            JOptionPane.showMessageDialog(null, mensaje);
+            limpiar();
+            cargarTablaInventario();
+        }
+    }//GEN-LAST:event_btnModificarInventarioActionPerformed
+
+    private void txtStockInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStockInicialActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtStockInicialActionPerformed
+
+    private void txtStockActualizadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStockActualizadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtStockActualizadoActionPerformed
+
+    private void txtIdInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdInventarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdInventarioActionPerformed
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        limpiar();
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void txtIdProductoInvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdProductoInvActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdProductoInvActionPerformed
+
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        FrmIndex frmind = new FrmIndex();
+        frmind.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnVolverActionPerformed
+
+    private void tblInventarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblInventarioMouseClicked
+        int seleccion = tblInventario.rowAtPoint(evt.getPoint());
+        txtIdInventario.setText(tblInventario.getValueAt(seleccion, 0) + "");
+        txtIdProductoInv.setText(tblInventario.getValueAt(seleccion, 1) + "");
+        txtStockInicial.setText(tblInventario.getValueAt(seleccion, 2) + "");
+        txtStockActualizado.setText(tblInventario.getValueAt(seleccion, 3) + "");
+        String fechaString = (String) tblInventario.getValueAt(seleccion, 4); // Cambia el índice si es necesario
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd"); // Ajusta el formato según sea necesario
+        try {
+            Date fechaRegistro = formato.parse(fechaString); //Convierte la cadena a Date
+            dtFechaInventario.setDate(fechaRegistro); //Establece la fecha en el JDateChooser
+        } catch (ParseException e) {
+            e.printStackTrace(); //Maneja la excepción según sea necesario
+            JOptionPane.showMessageDialog(null, "Error al convertir la fecha: " + e.getMessage());
+        }
+    }//GEN-LAST:event_tblInventarioMouseClicked
+
+    public void limpiar() {
+        txtIdInventario.setText("");
+        txtIdProductoInv.setText("");
+        txtStockInicial.setText("");
+        txtStockActualizado.setText("");
+        dtFechaInventario.setDate(null);
+    }
+
+    private void cargarTablaInventario() {
+        InventarioBO invBO = new InventarioBO();
+        invBO.listaInventario(tblInventario);
+    }
     /**
      * @param args the command line arguments
      */
@@ -80,7 +359,25 @@ public class FrmInventario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btnAgregarInventario;
+    private javax.swing.JButton btnEliminarInventario;
+    private javax.swing.JButton btnLimpiar;
+    private javax.swing.JButton btnModificarInventario;
+    private javax.swing.JButton btnVolver;
+    private com.toedter.calendar.JDateChooser dtFechaInventario;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblFechaInventario;
+    private javax.swing.JLabel lblIdInventario;
+    private javax.swing.JLabel lblIdProductoInv;
+    private javax.swing.JLabel lblImg;
+    private javax.swing.JLabel lblStockActualizado;
+    private javax.swing.JLabel lblStockInicial;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JTable tblInventario;
+    private javax.swing.JTextField txtIdInventario;
+    private javax.swing.JTextField txtIdProductoInv;
+    private javax.swing.JTextField txtStockActualizado;
+    private javax.swing.JTextField txtStockInicial;
     // End of variables declaration//GEN-END:variables
 }
